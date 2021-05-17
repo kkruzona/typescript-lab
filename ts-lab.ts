@@ -21,9 +21,9 @@ function findNameOfTallestMountain(param: Mountain[]): string {
     });
     return tallestMountain;
 }
-// console.log(findNameOfTallestMountain(mountains));
-
 let tallMountain = findNameOfTallestMountain(mountains);
+
+// console.log(findNameOfTallestMountain(mountains));
 // console.log(tallestMountain)
 
 // PRODUCTS
@@ -61,26 +61,29 @@ interface InventoryItem {
     quantity: number,
 }
 
-const inventory: InventoryItem[] = [{
-    product: {
-        name: 'motor',
-        price: 10.00
+const inventory: InventoryItem[] = [
+    {
+        product:{
+            name: 'Motor',
+            price: 10.00
+        },
+        quantity: 10
     },
-    quantity: 10,
-
-    product: {
-        name: 'sensor',
-        price: 12.50
+    {
+        product:{
+            name: 'Sensor',
+            price: 12.50
+        },
+        quantity: 4
     },
-    quantity: 4,
-
-    product: {
-        name: 'LED',
-        price: 1.00
-    },
-    quantity: 20,
-}, 
-];
+    {
+        product:{
+            name: 'LED',
+            price: 1.00
+        },
+        quantity: 20
+    }
+  ];
 
 let sum = 0;
 function calcInventoryValue(param: InventoryItem[]): number {
