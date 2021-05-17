@@ -13,8 +13,8 @@ const mountains: Mountain[] = [
 ];
 
 function findNameOfTallestMountain(param: Mountain[]): string {
-    let tallestMountain = Mountain[0];
-    Mountain.forEach((item) => {
+    let tallestMountain = mountains[0];
+    mountains.forEach((item) => {
       if (item.height < tallestMountain.height) {
         tallestMountain = item;
       }
@@ -23,7 +23,7 @@ function findNameOfTallestMountain(param: Mountain[]): string {
 }
 // console.log(findNameOfTallestMountain(mountains));
 
-let tallestMountain = findNameOfTallestMountain(mountains)
+let tallMountain = findNameOfTallestMountain(mountains);
 // console.log(tallestMountain)
 
 // PRODUCTS
@@ -40,41 +40,54 @@ const products: Product[] = [
 
 function calcAverageProductPrice(param: Product[]): number {
     let total = 0;
-    for(let i = 0; i < Product.length; i++) {
+    for(let i = 0; i < products.length; i++) {
     total += Product[i];
     }
-    let average = total / Product.length;
+    let average = total / products.length;
     return average;
 }
 
-let averagePrice = calcAverageProductPrice(products)
+let averagePrice = calcAverageProductPrice(products);
 // console.log(calcAverageProductPrice(products));
 
 
 // INVENTORY
 
 interface InventoryItem {
-    product: products;
-    quantity: number;
+    product: {
+        name: string,
+        price: number
+    },
+    quantity: number,
 }
 
-const inventory: InventoryItem[] = [
-    { name: 'motor', price: 10.00, quantity: 10 },
-    { name: 'sensor', price: 12.50, quantity: 4 },
-    { name: 'LED', price: 1.00, quantity: 20 }
+const inventory: InventoryItem[] = [{
+    product: {
+        name: 'motor',
+        price: 10.00
+    },
+    quantity: 10,
+
+    product: {
+        name: 'sensor',
+        price: 12.50
+    },
+    quantity: 4,
+
+    product: {
+        name: 'LED',
+        price: 1.00
+    },
+    quantity: 20,
+}, 
 ];
 
-
+let sum = 0;
 function calcInventoryValue(param: InventoryItem[]): number {
-    for (let inventory of InventoryItem)
-        {
-            if (num > maxSoFar)
-            {
-                maxSoFar = num;
-            }
-        }
-    return maxSoFar;
-}
+    let sum: number = 0;
+    inventory.forEach(a => sum += a.product.price);
+    return sum;
+  }
 
-let totalValue = calcInventoryValue(inventory)
+let totalValue = calcInventoryValue(inventory);
 // console.log(calcAverageProductPrice(products));

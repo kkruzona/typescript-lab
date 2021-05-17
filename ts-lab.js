@@ -6,8 +6,8 @@ const mountains = [
     { name: 'Denali', height: 20310 }
 ];
 function findNameOfTallestMountain(param) {
-    let tallestMountain = Mountain[0];
-    Mountain.forEach((item) => {
+    let tallestMountain = mountains[0];
+    mountains.forEach((item) => {
         if (item.height < tallestMountain.height) {
             tallestMountain = item;
         }
@@ -15,7 +15,7 @@ function findNameOfTallestMountain(param) {
     return tallestMountain;
 }
 // console.log(findNameOfTallestMountain(mountains));
-let tallestMountain = findNameOfTallestMountain(mountains);
+let tallMountain = findNameOfTallestMountain(mountains);
 const products = [
     { name: 'shirt', price: 20 },
     { name: 'jeans', price: 50 },
@@ -23,25 +23,36 @@ const products = [
 ];
 function calcAverageProductPrice(param) {
     let total = 0;
-    for (let i = 0; i < Product.length; i++) {
+    for (let i = 0; i < products.length; i++) {
         total += Product[i];
     }
-    let average = total / Product.length;
+    let average = total / products.length;
     return average;
 }
 let averagePrice = calcAverageProductPrice(products);
-const inventory = [
-    { name: 'motor', price: 10.00, quantity: 10 },
-    { name: 'sensor', price: 12.50, quantity: 4 },
-    { name: 'LED', price: 1.00, quantity: 20 }
+const inventory = [{
+        product: {
+            name: 'motor',
+            price: 10.00
+        },
+        quantity: 10,
+        product: {
+            name: 'sensor',
+            price: 12.50
+        },
+        quantity: 4,
+        product: {
+            name: 'LED',
+            price: 1.00
+        },
+        quantity: 20,
+    },
 ];
+let sum = 0;
 function calcInventoryValue(param) {
-    for (let inventory of InventoryItem) {
-        if (num > maxSoFar) {
-            maxSoFar = num;
-        }
-    }
-    return maxSoFar;
+    let sum = 0;
+    inventory.forEach(a => sum += a.product.price);
+    return sum;
 }
 let totalValue = calcInventoryValue(inventory);
 // console.log(calcAverageProductPrice(products));
